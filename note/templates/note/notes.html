@@ -1,0 +1,21 @@
+<form action="{% url 'note:notes' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>New note</h1></legend>
+            <input type="text" name="name" placeholder="Name">
+            <br><br>
+            <textarea name="note" cols="30" rows="3" placeholder="Write something..."></textarea>
+            <br><br>
+            <input type="submit" value="Save">
+    </fieldset>
+</form>
+
+{% if note_list %}
+    <ul>
+    {% for note in note_list %}
+        <li><a href="{% url 'note:detail' note.id %}">{{ note.Name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Pas de note disponibles.</p>
+{% endif %}

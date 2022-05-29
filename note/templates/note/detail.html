@@ -1,0 +1,26 @@
+<h1> Note : {{note.Name}} </h1>
+<ul>
+    <li>Author : {{note.created_by.first_name}} {{note.created_by.last_name}}</li>
+    <li>Content : {{note.Description}}</li>
+    <li>Creation date : {{note.created_at}}</li>
+    <li>Last modification : {{note.modified_at}}</li>
+</ul>
+<br>
+
+<form action="{% url 'note:detail' note.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" name="submit" value="Supprimer">
+</form>
+
+
+<form action="{% url 'note:detail' note.id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>Modify</h1></legend>
+            <input type="text" name="name" placeholder="Name" required>
+            <br><br>
+            <textarea name="note" cols="30" rows="3" placeholder="Write something..." required></textarea>
+            <br><br>
+            <input type="submit" name="submit" value="Enregistrer">
+    </fieldset>
+</form>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <form action="{% url 'note:index' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>Connexion</h1></legend>
+                <input type="email" name="email" placeholder="e-mail">
+                <input type="password" name="password" placeholder="*****">
+                <input type="submit" name="submit" value="Connexion">
+        </fieldset>
+    </form>
+
+    <form action="{% url 'note:index' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>Inscription</h1></legend>
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom" required>
+                <br>
+                <label for="prenom">Prenom :</label>
+                <input type="text" name="prenom" id="prenom" required>
+                <br>
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email" required>
+                <br>
+                <label for="password">Mot de pass :</label>
+                <input type="password" name="password" id="password" required>
+                <br>
+                <label for="Cpassword">Confirmer le mot de pass :</label>
+                <input type="password" name="Cpassword" id="password" required>
+                <br>
+                <label for="naissance">Date de naissance :</label>
+                <input type="date" name="naissance" id="naissance" required>
+                <br><br>
+                <input type="submit" name="submit" value="Inscription">
+        </fieldset>
+    </form>
+
+</body>
+</html>
